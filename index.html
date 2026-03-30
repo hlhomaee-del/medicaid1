@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBCS Insurance Mastery Question Lab: Medicare, Medicaid & COB</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+/* ── ROOT ── */
+:root{
+  --bg:#f0f4ff;
+  --card:#ffffff;
+  --primary:#4f46e5;
+  --primary-d:#3730a3;
+  --primary-l:#e0e7ff;
+  --primary-text:#1e1b4b;
+  --secondary:#0ea5e9;
+  --secondary-d:#0369a1;
+  --secondary-l:#e0f2fe;
+  --secondary-text:#0c4a6e;
+  --accent:#f59e0b;
+  --accent-d:#b45309;
+  --accent-l:#fef3c7;
+  --accent-text:#78350f;
+  --success:#059669;
+  --success-d:#047857;
+  --success-l:#d1fae5;
+  --success-text:#064e3b;
+  --danger:#dc2626;
+  --danger-d:#991b1b;
+  --danger-l:#fee2e2;
+  --danger-text:#7f1d1d;
+  --warn:#d97706;
+  --warn-d:#92400e;
+  --warn-l:#fef3c7;
+  --warn-text:#78350f;
+  --purple:#7c3aed;
+  --purple-d:#5b21b6;
+  --purple-l:#ede9fe;
+  --purple-text:#2e1065;
+  --pink:#db2777;
+  --pink-d:#9d174d;
+  --pink-l:#fce7f3;
+  --pink-text:#500724;
+  --teal:#0d9488;
+  --teal-d:#0f766e;
+  --teal-l:#ccfbf1;
+  --teal-text:#134e4a;
+  --text:#1e1b4b;
+  --text2:#374151;
+  --muted:#6b7280;
+  --border:#e0e7ff;
+  --border2:#c7d2fe;
+  --shadow:0 4px 24px rgba(79,70,229,0.10);
+  --shadow2:0 8px 40px rgba(79,70,229,0.16);
+  --r:16px;
+  --rs:10px;
+  --f:'DM Sans',sans-serif;
+  --fh:'Sora',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:var(--f);background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-size:15px;line-height:1.65;}
+h1,h2,h3,h4{font-family:var(--fh);}
+
+/* ── HEADER ── */
+.site-header{
+  background:linear-gradient(135deg,#3730a3 0%,#4f46e5 40%,#0ea5e9 100%);
+  color:#fff;padding:16px 24px 12px;
+  position:sticky;top:0;z-index:200;
+  box-shadow:0 2px 20px rgba(79,70,229,0.35);
+}
+.header-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;
+}
+.header-title{font-size:1.05rem;font-weight:800;color:#fff;line-height:1.25;}
+.header-title span{color:#bfdbfe;font-weight:600;}
+.header-stats{display:flex;gap:8px;flex-wrap:wrap;}
+.hstat{
+  background:rgba(255,255,255,.18);border-radius:20px;
+  padding:3px 13px;font-size:.7rem;font-weight:700;color:#fff;
+}
+.hstat b{color:#fde68a;}
+/* nav */
+.nav-wrap{overflow-x:auto;scrollbar-width:none;padding-top:8px;}
+.nav-wrap::-webkit-scrollbar{display:none;}
+.nav-tabs{display:flex;gap:3px;}
+.ntab{
+  background:rgba(255,255,255,.12);border:none;
+  color:rgba(255,255,255,.8);padding:7px 14px;
+  cursor:pointer;font-size:.68rem;font-weight:700;
+  white-space:nowrap;border-radius:8px 8px 0 0;
+  font-family:var(--fh);transition:all .2s;
+}
+.ntab:hover{background:rgba(255,255,255,.24);color:#fff;}
+.ntab.active{background:#fff;color:#3730a3;font-weight:800;}
+
+/* ── LAYOUT ── */
+.page{max-width:1100px;margin:0 auto;padding:28px 18px 80px;}
+.panel{display:none;animation:fadeUp .3s ease;}
+.panel.active{display:block;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(7px);}to{opacity:1;transform:translateY(0);}}
+
+/* ── HERO BANNER ── */
+.hero{
+  border-radius:20px;padding:32px 28px;color:#fff;
+  margin-bottom:22px;position:relative;overflow:hidden;
+}
+.hero-primary{background:linear-gradient(135deg,#3730a3,#4f46e5 50%,#7c3aed);}
+.hero-secondary{background:linear-gradient(135deg,#0369a1,#0ea5e9 50%,#0d9488);}
+.hero-accent{background:linear-gradient(135deg,#92400e,#d97706 50%,#f59e0b);}
+.hero-label{font-size:.67rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+            opacity:.8;margin-bottom:5px;}
+.hero-title{font-size:1.55rem;font-weight:800;line-height:1.2;margin-bottom:8px;}
+.hero-sub{font-size:.86rem;opacity:.9;max-width:540px;line-height:1.6;}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+
+/* ── SECTION HEADS ── */
+.eyebrow{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+         color:var(--primary);margin-bottom:3px;}
+h2.sh{font-family:var(--fh);font-size:1.3rem;color:var(--text);margin-bottom:5px;}
+p.sp{font-size:.84rem;color:var(--text2);margin-bottom:16px;line-height:1.65;}
+.divider{height:2px;background:linear-gradient(90deg,var(--primary-l),var(--purple-l),var(--secondary-l));
+         border-radius:2px;margin:22px 0;}
+
+/* ── DIRECTION BOX ── */
+.dir{
+  background:var(--primary-l);border-left:5px solid var(--primary);
+  border-radius:var(--r);padding:14px 18px;margin-bottom:18px;
+}
+.dir h3{color:var(--primary-text);font-size:.88rem;font-weight:800;margin-bottom:6px;}
+.dir ul{list-style:none;padding:0;}
+.dir li{font-size:.81rem;color:var(--primary-text);padding:3px 0 3px 16px;position:relative;}
+.dir li::before{content:"▸";position:absolute;left:0;color:var(--primary);font-size:.7rem;top:5px;}
+
+/* ── CONCEPT CARD ── */
+.concept{
+  background:var(--card);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:20px 22px;margin-bottom:12px;
+}
+.concept.c-primary{border-left:5px solid var(--primary);}
+.concept.c-secondary{border-left:5px solid var(--secondary);}
+.concept.c-accent{border-left:5px solid var(--accent);}
+.concept.c-danger{border-left:5px solid var(--danger);}
+.concept.c-purple{border-left:5px solid var(--purple);}
+.concept.c-teal{border-left:5px solid var(--teal);}
+.concept.c-success{border-left:5px solid var(--success);}
+.clbl{font-size:.62rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin-bottom:4px;}
+.concept.c-primary  .clbl{color:var(--primary-d);}
+.concept.c-secondary .clbl{color:var(--secondary-d);}
+.concept.c-accent   .clbl{color:var(--accent-d);}
+.concept.c-danger   .clbl{color:var(--danger-d);}
+.concept.c-purple   .clbl{color:var(--purple-d);}
+.concept.c-teal     .clbl{color:var(--teal-d);}
+.concept.c-success  .clbl{color:var(--success-d);}
+.concept h3{font-size:.96rem;font-weight:800;color:var(--text);margin-bottom:7px;}
+.concept p,.concept li{font-size:.83rem;line-height:1.7;color:var(--text2);}
+.concept ul{padding-left:16px;margin-top:5px;}
+.concept li{margin-bottom:3px;}
+.concept strong{color:var(--text);}
+
+/* ── CHECK-IN BOX ── */
+.checkin{
+  background:var(--purple-l);border-radius:var(--r);
+  padding:16px 18px;margin:10px 0 20px;
+}
+.ci-lbl{
+  font-size:.63rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.1em;color:var(--purple-text);
+  display:flex;align-items:center;gap:5px;margin-bottom:10px;
+}
+.ci-lbl::before{content:'★';color:var(--purple);}
+
+/* ── QUIZ BLOCK ── */
+.qblock{
+  background:var(--card);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:18px 20px;margin-bottom:12px;
+}
+.qmeta{
+  font-size:.62rem;font-weight:800;text-transform:uppercase;
+  letter-spacing:.08em;color:var(--purple);
+  margin-bottom:5px;display:flex;align-items:center;gap:6px;
+}
+.qpts{
+  background:var(--purple-l);color:var(--purple-text);
+  border-radius:10px;padding:1px 8px;font-size:.65rem;font-weight:800;
+}
+.qtxt{font-size:.9rem;font-weight:700;color:var(--text);line-height:1.5;margin-bottom:12px;}
+.qopts{display:flex;flex-direction:column;gap:7px;}
+/* ── THE KEY FIX: q-opt uses type=button so it never submits a form,
+      and all state changes go through JS classes only ── */
+.q-opt{
+  background:#f8faff;border:2px solid var(--border);
+  border-radius:var(--rs);padding:10px 14px;
+  cursor:pointer;font-size:.82rem;font-family:var(--f);
+  text-align:left;transition:background .18s,border-color .18s,color .18s;
+  color:var(--text);line-height:1.4;font-weight:600;
+  /* prevent any inherited form behaviour */
+  -webkit-appearance:none;appearance:none;
+}
+.q-opt:hover:not([disabled]):not(.q-ok):not(.q-no){
+  background:var(--primary-l);border-color:var(--primary);color:var(--primary-text);
+}
+.q-opt.q-ok{
+  background:var(--success-l);border-color:var(--success);
+  color:var(--success-text);font-weight:800;cursor:default;
+}
+.q-opt.q-no{
+  background:var(--danger-l);border-color:var(--danger);
+  color:var(--danger-text);cursor:default;
+}
+.q-opt[disabled]:not(.q-ok):not(.q-no){
+  background:var(--bg);color:var(--muted);border-color:var(--border);cursor:default;
+}
+/* ── RATIONALE ── */
+.rat{display:none;margin-top:12px;border-radius:var(--rs);overflow:hidden;}
+.rat.show{display:block;animation:fadeUp .3s;}
+.rat-head{
+  padding:9px 14px;font-size:.7rem;font-weight:800;
+  text-transform:uppercase;letter-spacing:.07em;color:#fff;
+  display:flex;align-items:center;gap:6px;
+}
+.rh-ok{background:var(--success-d);}
+.rh-no{background:var(--danger-d);}
+.rat-body{
+  background:var(--card);border:1px solid var(--border2);border-top:none;
+  padding:12px 14px;font-size:.8rem;line-height:1.65;color:var(--text2);
+}
+.rat-clue{
+  background:var(--primary-l);border:1px solid var(--primary);
+  border-radius:var(--rs);padding:7px 11px;margin-top:7px;
+  font-size:.76rem;color:var(--primary-text);font-weight:700;
+}
+.rat-trap{
+  background:var(--warn-l);border:1px solid var(--warn);
+  border-radius:var(--rs);padding:7px 11px;margin-top:7px;
+  font-size:.76rem;color:var(--warn-text);font-weight:700;
+}
+
+/* ── TRUE / FALSE ── */
+.tf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin:8px 0;}
+.tf-card{
+  background:var(--card);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:14px 16px;border:1px solid var(--border);
+}
+.tf-stmt{font-size:.84rem;font-weight:700;color:var(--text);margin-bottom:9px;line-height:1.45;}
+.tf-row{display:flex;gap:8px;}
+.tf-btn{
+  flex:1;padding:8px;border:2px solid var(--border);border-radius:var(--rs);
+  cursor:pointer;font-size:.79rem;font-weight:800;font-family:var(--fh);
+  background:var(--card);color:var(--text2);transition:all .2s;
+}
+.tf-btn:hover:not([disabled]){border-color:var(--primary);color:var(--primary-text);}
+.tf-btn.tf-ok{background:var(--success-l);border-color:var(--success);color:var(--success-text);}
+.tf-btn.tf-no{background:var(--danger-l);border-color:var(--danger);color:var(--danger-text);}
+.tf-btn[disabled]{cursor:default;}
+.tf-explain{
+  font-size:.77rem;color:var(--text2);margin-top:7px;
+  padding:7px 10px;background:var(--bg);border:1px solid var(--border);
+  border-radius:var(--rs);display:none;line-height:1.5;
+}
+.tf-explain.show{display:block;}
+
+/* ── SCENARIO BOX ── */
+.scenario{
+  background:linear-gradient(135deg,#fffbeb,#fef3c7);
+  border:2px solid #d97706;border-radius:var(--r);padding:13px 17px;margin:10px 0;
+}
+.sc-lbl{font-size:.62rem;font-weight:800;text-transform:uppercase;
+        letter-spacing:.1em;color:var(--warn-d);margin-bottom:4px;}
+.sc-text{font-size:.85rem;color:#2d1b00;line-height:1.6;}
+
+/* ── FLIP CARDS ── */
+.flip-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:12px;margin:12px 0;}
+.flip-wrap{height:172px;perspective:800px;cursor:pointer;}
+.flip-inner{position:relative;width:100%;height:100%;transform-style:preserve-3d;transition:transform .5s;border-radius:var(--r);}
+.flip-wrap.flipped .flip-inner{transform:rotateY(180deg);}
+.flip-f,.flip-b{position:absolute;inset:0;backface-visibility:hidden;border-radius:var(--r);padding:16px 14px;box-shadow:var(--shadow);}
+.flip-f{background:var(--card);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;border:1px solid var(--border);}
+.flip-b{transform:rotateY(180deg);color:#fff;display:flex;flex-direction:column;justify-content:center;}
+.flip-icon{font-size:2rem;margin-bottom:6px;}
+.flip-name{font-size:.82rem;font-weight:800;color:var(--text);}
+.flip-hint{font-size:.62rem;color:var(--muted);margin-top:4px;}
+.flip-b h4{font-size:.82rem;font-weight:800;margin-bottom:5px;}
+.flip-b p{font-size:.74rem;line-height:1.55;opacity:.95;}
+/* back colour variants */
+.fb-primary{background:linear-gradient(135deg,var(--primary-d),var(--primary));}
+.fb-secondary{background:linear-gradient(135deg,var(--secondary-d),var(--secondary));}
+.fb-purple{background:linear-gradient(135deg,var(--purple-d),var(--purple));}
+.fb-teal{background:linear-gradient(135deg,var(--teal-d),var(--teal));}
+.fb-accent{background:linear-gradient(135deg,var(--accent-d),var(--accent));color:var(--accent-text);}
+.fb-accent h4,.fb-accent p{color:var(--accent-text);opacity:1;}
+
+/* ── SORT / CHIP ── */
+/* scoped to prevent cross-tab interference */
+.sort-section .chip-pool{
+  display:flex;flex-wrap:wrap;gap:7px;padding:10px;
+  background:var(--bg);border-radius:var(--rs);
+  margin-bottom:8px;border:1px solid var(--border);
+}
+.sort-section .chip{
+  background:var(--card);border:2px solid var(--border);
+  border-radius:7px;padding:6px 12px;cursor:pointer;
+  font-size:.76rem;font-weight:700;color:var(--text2);
+  transition:all .2s;user-select:none;
+}
+.sort-section .chip:hover{border-color:var(--primary);background:var(--primary-l);color:var(--primary-text);}
+.sort-section .chip.sel{border-color:var(--primary);background:var(--primary-l);color:var(--primary-text);}
+.sort-section .chip.chip-ok{border-color:var(--success);background:var(--success-l);color:var(--success-text);cursor:default;}
+.sort-section .chip.chip-no{border-color:var(--danger);background:var(--danger-l);color:var(--danger-text);}
+.sort-section .chip[style*="display: none"]{display:none!important;}
+.sort-zones{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:9px;margin-top:8px;}
+.sort-zone{
+  min-height:58px;padding:9px;background:var(--card);
+  border-radius:var(--rs);border:2px dashed var(--border);
+  transition:border-color .2s;
+}
+.sort-zone:hover{border-color:var(--primary);}
+.sz-lbl{font-size:.68rem;font-weight:800;text-transform:uppercase;
+        margin-bottom:5px;color:var(--text2);}
+.sz-lbl.l-primary{color:var(--primary-d);}
+.sz-lbl.l-secondary{color:var(--secondary-d);}
+.sz-lbl.l-purple{color:var(--purple-d);}
+.sz-lbl.l-teal{color:var(--teal-d);}
+.sz-lbl.l-accent{color:var(--accent-d);}
+
+/* ── TABLE ── */
+.tbl{width:100%;border-collapse:collapse;font-size:.8rem;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);}
+.tbl th{background:var(--primary);color:#fff;padding:9px 13px;text-align:left;font-weight:800;}
+.tbl td{padding:8px 13px;border-bottom:1px solid var(--border);vertical-align:top;color:var(--text2);}
+.tbl tr:nth-child(even) td{background:var(--bg);}
+.tbl tr:hover td{background:var(--primary-l);}
+.tag{display:inline-block;border-radius:6px;padding:1px 8px;font-size:.7rem;font-weight:700;}
+.tag-ok{background:var(--success-l);color:var(--success-text);}
+.tag-no{background:var(--danger-l);color:var(--danger-text);}
+.tag-maybe{background:var(--warn-l);color:var(--warn-text);}
+
+/* ── BUTTONS ── */
+.btn{
+  border:none;border-radius:var(--rs);padding:9px 20px;
+  font-size:.82rem;font-weight:800;cursor:pointer;font-family:var(--fh);
+  transition:all .22s;letter-spacing:.02em;
+}
+.btn-primary{background:var(--primary);color:#fff;border:2px solid var(--primary-d);}
+.btn-primary:hover{background:var(--primary-d);transform:translateY(-1px);}
+.btn-secondary{background:var(--secondary);color:#fff;border:2px solid var(--secondary-d);}
+.btn-secondary:hover{background:var(--secondary-d);}
+.btn-success{background:var(--success);color:#fff;border:2px solid var(--success-d);}
+.btn-success:hover{background:var(--success-d);}
+.btn-warn{background:var(--warn);color:#fff;border:2px solid var(--warn-d);}
+.btn-purple{background:var(--purple);color:#fff;border:2px solid var(--purple-d);}
+.btn-purple:hover{background:var(--purple-d);}
+.btn-ghost{background:var(--card);border:2px solid var(--border);color:var(--text2);}
+.btn-ghost:hover{border-color:var(--primary);color:var(--primary-text);}
+.btn-lg{padding:12px 28px;font-size:.9rem;}
+.btn-sm{padding:6px 12px;font-size:.73rem;}
+
+/* ── ACCORDION ── */
+.acc{border:1px solid var(--border);border-radius:var(--r);overflow:hidden;margin-bottom:9px;}
+.acc-hdr{
+  background:var(--card);padding:13px 17px;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  font-weight:800;font-size:.84rem;border:none;width:100%;
+  text-align:left;font-family:var(--fh);color:var(--text);transition:background .2s;
+}
+.acc-hdr:hover{background:var(--bg);}
+.acc-hdr.open{background:var(--primary-l);color:var(--primary-text);}
+.acc-arr{transition:transform .3s;font-size:.75rem;}
+.acc-hdr.open .acc-arr{transform:rotate(180deg);}
+.acc-body{display:none;padding:14px 17px;background:var(--card);border-top:1px solid var(--border);font-size:.82rem;line-height:1.7;color:var(--text2);}
+.acc-body.open{display:block;}
+
+/* ── NOTIF TOAST ── */
+#notif{
+  position:fixed;top:80px;right:18px;
+  background:var(--success);color:#fff;
+  border-radius:var(--rs);padding:10px 16px;font-size:.8rem;font-weight:800;
+  box-shadow:var(--shadow2);z-index:9999;
+  transform:translateX(140%);transition:transform .3s;
+  border:2px solid var(--success-d);pointer-events:none;
+}
+#notif.show{transform:translateX(0);}
+#notif.bad{background:var(--danger);border-color:var(--danger-d);}
+
+/* ── ORIENT GRID ── */
+.orient-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin:16px 0;}
+.oc{background:var(--card);border-radius:var(--r);padding:14px;text-align:center;box-shadow:var(--shadow);cursor:pointer;transition:all .22s;border-bottom:3px solid transparent;}
+.oc:hover{transform:translateY(-3px);box-shadow:var(--shadow2);border-bottom-color:var(--primary);}
+.oc-icon{font-size:1.9rem;margin-bottom:5px;}
+.oc-lbl{font-size:.74rem;font-weight:800;color:var(--text);}
+.oc-desc{font-size:.67rem;color:var(--text2);margin-top:2px;line-height:1.35;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:620px){
+  .flip-grid{grid-template-columns:1fr 1fr;}
+  .hero-title{font-size:1.2rem;}
+  .tf-grid{grid-template-columns:1fr;}
+  .sort-zones{grid-template-columns:1fr 1fr;}
+}
+
+/* ── FOOTER ── */
+.footer{background:var(--primary-d);color:rgba(255,255,255,.72);text-align:center;padding:16px;font-size:.73rem;margin-top:40px;}
+.footer b{color:#fff;}
+</style>
+</head>
+<body>
+<div id="notif"></div>
+
+<!-- ══════════ HEADER ══════════ -->
+<div class="site-header">
+  <div class="header-inner">
+    <div class="header-title">
+      CBCS Insurance Mastery Lab<br>
+      <span>Medicare · Medicaid · SEP · COB · Plan Types</span>
+    </div>
+    <div class="header-stats">
+      <span class="hstat">⭐ <b id="gScore">0</b> pts</span>
+      <span class="hstat">✅ <b id="gCorrect">0</b> correct</span>
+      <span class="hstat">🎯 <b id="gAcc">—</b></span>
+    </div>
+  </div>
+  <div class="nav-wrap">
+    <div class="nav-tabs">
+      <button class="ntab active" onclick="goTab(0)">🏠 Start</button>
+      <button class="ntab" onclick="goTab(1)">🔵 Medicare A–D</button>
+      <button class="ntab" onclick="goTab(2)">🟢 Medicaid &amp; More</button>
+      <button class="ntab" onclick="goTab(3)">📋 Plan Types</button>
+      <button class="ntab" onclick="goTab(4)">🔄 COB &amp; Birthday</button>
+      <button class="ntab" onclick="goTab(5)">💵 Patient $</button>
+      <button class="ntab" onclick="goTab(6)">🎯 Practice Arena</button>
+      <button class="ntab" onclick="goTab(7)">⏱️ Challenge</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     TAB 0 — WELCOME
+══════════════════════════════ -->
+<div id="tab0" class="panel active">
+<div class="page">
+
+  <div class="hero hero-primary">
+    <div class="hero-label">CBCS Exam Prep · Insurance Domain</div>
+    <div class="hero-title">Insurance Mastery<br>Question Lab</div>
+    <div class="hero-sub">Every concept taught — then immediately tested. Answer questions, read rationales, earn points. No instructor needed.</div>
+    <div class="hero-btns">
+      <button class="btn btn-secondary btn-lg" onclick="goTab(1)">▶ Start with Medicare</button>
+      <button class="btn btn-ghost btn-lg" onclick="toggleAcc('how-acc')">How It Works</button>
+    </div>
+  </div>
+
+  <div class="acc">
+    <button class="acc-hdr" onclick="toggleAcc('how-acc')">
+      📖 How This Lab Works
+      <span class="acc-arr">▼</span>
+    </button>
+    <div class="acc-body" id="how-acc">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:4px;">
+        <div style="background:var(--primary-l);border-radius:var(--rs);padding:11px 13px;">
+          <b style="color:var(--primary-text);font-size:.72rem;display:block;margin-bottom:3px;">📚 Learn a Concept</b>
+          <span style="font-size:.78rem;color:var(--primary-text);">Short teaching card → then an instant check-in question.</span>
+        </div>
+        <div style="background:var(--purple-l);border-radius:var(--rs);padding:11px 13px;">
+          <b style="color:var(--purple-text);font-size:.72rem;display:block;margin-bottom:3px;">★ Check-In Question</b>
+          <span style="font-size:.78rem;color:var(--purple-text);">Answer right after each concept. Green = correct. Red = wrong.</span>
+        </div>
+        <div style="background:var(--success-l);border-radius:var(--rs);padding:11px 13px;">
+          <b style="color:var(--success-text);font-size:.72rem;display:block;margin-bottom:3px;">✅ Full Rationale</b>
+          <span style="font-size:.78rem;color:var(--success-text);">Every answer explains why it's right, why others are wrong.</span>
+        </div>
+        <div style="background:var(--accent-l);border-radius:var(--rs);padding:11px 13px;">
+          <b style="color:var(--accent-text);font-size:.72rem;display:block;margin-bottom:3px;">⭐ Score &amp; Points</b>
+          <span style="font-size:.78rem;color:var(--accent-text);">+10 per correct answer. Tracks at the top.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="eyebrow">Lab Contents</div>
+  <h2 class="sh">7 Tabs · 60+ Questions</h2>
+  <p class="sp">Work through the tabs in order. The Challenge tab at the end tests everything.</p>
+
+  <div class="orient-grid">
+    <div class="oc" onclick="goTab(1)"><div class="oc-icon">🔵</div><div class="oc-lbl">Medicare A–D</div><div class="oc-desc">Parts + billing implications</div></div>
+    <div class="oc" onclick="goTab(2)"><div class="oc-icon">🟢</div><div class="oc-lbl">Medicaid &amp; More</div><div class="oc-desc">Medicaid · Medigap · TRICARE</div></div>
+    <div class="oc" onclick="goTab(3)"><div class="oc-icon">📋</div><div class="oc-lbl">Plan Types</div><div class="oc-desc">HMO · PPO · EPO · POS</div></div>
+    <div class="oc" onclick="goTab(4)"><div class="oc-icon">🔄</div><div class="oc-lbl">COB &amp; Birthday</div><div class="oc-desc">Payer order rules</div></div>
+    <div class="oc" onclick="goTab(5)"><div class="oc-icon">💵</div><div class="oc-lbl">Patient $</div><div class="oc-desc">Copay · Deductible · OOP</div></div>
+    <div class="oc" onclick="goTab(6)"><div class="oc-icon">🎯</div><div class="oc-lbl">Practice Arena</div><div class="oc-desc">Mixed scenarios + error-spotting</div></div>
+    <div class="oc" onclick="goTab(7)"><div class="oc-icon">⏱️</div><div class="oc-lbl">Challenge</div><div class="oc-desc">30 Qs · timed · randomized</div></div>
+  </div>
+
+  <!-- Quick start Q -->
+  <div class="divider"></div>
+  <div id="qs1" class="qblock">
+    <div class="qmeta">Quick Start <span class="qpts">+10 pts</span></div>
+    <div class="qtxt">Medicare is primarily based on which of the following?</div>
+    <div class="qopts">
+      <button type="button" class="q-opt" onclick="ansQ('qs1',0,1,'Income determines Medicaid eligibility, not Medicare. Medicare is not means-tested.','')">A. Income level</button>
+      <button type="button" class="q-opt" onclick="ansQ('qs1',1,1,'✅ CORRECT! Medicare is based on age (65+) or qualifying disability — not income. This is one of the most tested Medicare basics on the CBCS exam.','Medicare = age/disability-based. NOT income-based. Income = Medicaid.')">B. Age (65+) or qualifying disability</button>
+      <button type="button" class="q-opt" onclick="ansQ('qs1',2,1,'Military service determines TRICARE eligibility, not Medicare.','')">C. Active military service</button>
+      <button type="button" class="q-opt" onclick="ansQ('qs1',3,1,'Employment status does not determine Medicare eligibility. Even retired people qualify at 65.','')">D. Current employment status</button>
+    </div>
+    <div class="rat" id="rat-qs1"></div>
+  </div>
+
+</div><!-- /page -->
+</div><!-- /tab0 -->
+
+<!-- ══════════════════════════════
+     TAB 1 — MEDICARE A–D
+══════════════════════════════ -->
+<div id="tab1" class="panel">
+<div class="page">
+
+  <div class="eyebrow">Tab 2 · Government Insurance</div>
+  <h2 class="sh">🔵 Medicare — Parts A, B, C &amp; D</h2>
+  <p class="sp">Flip each card to reveal billing details, then answer the check-in question right away.</p>
+
+  <div class="dir">
+    <h3>📌 What To Do</h3>
+    <ul>
+      <li>Flip each card to see billing implications</li>
+      <li>Answer every check-in question before scrolling</li>
+      <li><strong>Points available: up to 80 pts</strong></li>
+    </ul>
+  </div>
+
+  <!-- CONCEPT 1: What is Medicare -->
+  <div class="concept c-primary">
+    <div class="clbl">Concept 1 — What Is Medicare?</div>
+    <h3>Federal · Age-Based · NOT Income-Based</h3>
+    <ul>
+      <li>Federal program administered by <strong>CMS</strong> (Centers for Medicare &amp; Medicaid Services)</li>
+      <li>For people <strong>age 65+</strong> and certain qualifying disabilities</li>
+      <li><strong>NOT income-based</strong> — that's Medicaid</li>
+      <li>Divided into <strong>4 parts</strong>, each with distinct billing implications</li>
+      <li>Covered entities include: <strong>healthcare providers, health plans, clearinghouses</strong></li>
+    </ul>
+  </div>
+
+  <!-- FLIP CARDS -->
+  <div class="flip-grid">
+    <div class="flip-wrap" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-f" style="border-top:4px solid var(--primary);">
+          <div class="flip-icon">🏥</div>
+          <div class="flip-name">Part A</div>
+          <div class="flip-hint">Hospital Insurance — tap ↩</div>
+        </div>
+        <div class="flip-b fb-primary">
+          <h4>Part A — Hospital</h4>
+          <p>✔ Inpatient, SNF, hospice, home health<br><br>⚡ Bill Part A when patient is ADMITTED (not observation)<br><br>💡 Most get premium-free Part A</p>
+        </div>
+      </div>
+    </div>
+    <div class="flip-wrap" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-f" style="border-top:4px solid var(--teal);">
+          <div class="flip-icon">🩺</div>
+          <div class="flip-name">Part B</div>
+          <div class="flip-hint">Medical Insurance — tap ↩</div>
+        </div>
+        <div class="flip-b fb-teal">
+          <h4>Part B — Outpatient</h4>
+          <p>✔ Physician visits, lab, DME, imaging, preventive<br><br>⚡ Pays 80% after deductible — patient owes 20%<br><br>💡 Monthly premium required</p>
+        </div>
+      </div>
+    </div>
+    <div class="flip-wrap" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-f" style="border-top:4px solid var(--purple);">
+          <div class="flip-icon">🏢</div>
+          <div class="flip-name">Part C</div>
+          <div class="flip-hint">Medicare Advantage — tap ↩</div>
+        </div>
+        <div class="flip-b fb-purple">
+          <h4>Part C — MA Plan</h4>
+          <p>✔ Private plan that REPLACES Original Medicare<br><br>🚫 Bill the private MA plan — NOT CMS directly<br><br>⚠️ Part C ≠ supplement. It REPLACES A+B.</p>
+        </div>
+      </div>
+    </div>
+    <div class="flip-wrap" onclick="this.classList.toggle('flipped')">
+      <div class="flip-inner">
+        <div class="flip-f" style="border-top:4px solid var(--accent);">
+          <div class="flip-icon">💊</div>
+          <div class="flip-name">Part D</div>
+          <div class="flip-hint">Prescription Drugs — tap ↩</div>
+        </div>
+        <div class="flip-b fb-accent">
+          <h4>Part D — Pharmacy</h4>
+          <p>✔ Outpatient pharmacy drugs only<br><br>⚡ Bill the Prescription Drug Plan — NOT Medicare<br><br>💡 In-office injections = usually Part B</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECK-IN 1 -->
+  <div class="checkin">
+    <div class="ci-lbl">Check-In — Concept 1 · Which Part?</div>
+    <div id="m1" class="qblock" style="background:transparent;box-shadow:none;padding:0;">
+      <div class="qmeta">Q1 <span class="qpts">+10 pts</span></div>
+      <div class="qtxt">A Medicare patient is formally ADMITTED to the hospital for 3 days. Which part covers the inpatient costs?</div>
+      <div class="qopts">
+        <button type="button" class="q-opt" onclick="ansQ('m1',0,0,'✅ CORRECT! Part A = Hospital Insurance. The key word is ADMITTED. Formal inpatient admission = Part A. Observation stays = Part B.','Admitted = inpatient = Part A. Observation = outpatient = Part B.')">A. Part A — Hospital Insurance</button>
+        <button type="button" class="q-opt" onclick="ansQ('m1',1,0,'Part B covers OUTPATIENT services — physician visits, lab, DME. An inpatient admission is Part A.','')">B. Part B — Medical Insurance</button>
+        <button type="button" class="q-opt" onclick="ansQ('m1',2,0,'Part C is a private plan delivery mechanism (Medicare Advantage). It is not a specific coverage type that answers this question.','')">C. Part C — Medicare Advantage</button>
+        <button type="button" class="q-opt" onclick="ansQ('m1',3,0,'Part D covers outpatient pharmacy drugs. Hospital stays are Part A.','')">D. Part D — Prescription Drugs</button>
+      </div>
+      <div class="rat" id="rat-m1"></div>
+    </div>
+  </div>
+
+  <!-- CHECK-IN 2 -->
+  <div class="checkin">
+    <div class="ci-lbl">Check-In — Concept 2 · Billing Destination</div>
+    <div id="m2" class="qblock" style="background:transparent;box-shadow:none;padding:0;">
+      <div class="qmeta">Q2 <span class="qpts">+10 pts</span></div>
+      <div class="qtxt">A patient's card reads "Humana Medicare Advantage Gold." Where should the biller submit the claim?</div>
+      <div class="qopts">
+        <button type="button" class="q-opt" onclick="ansQ('m2',0,1,'NOT CMS directly. Medicare Advantage patients are enrolled in a private plan. Claims go to the private MA insurer — not to CMS.','')">A. Directly to CMS / Medicare</button>
+        <button type="button" class="q-opt" onclick="ansQ('m2',1,1,'✅ CORRECT! Medicare Advantage = private plan. Bill Humana (the private MA plan). CMS does not process MA claims directly. This is the most-tested Medicare billing workflow distinction.','MA card → bill the named private insurer. Never bill CMS directly for MA patients.')">B. To Humana — the private Medicare Advantage plan</button>
+        <button type="button" class="q-opt" onclick="ansQ('m2',2,1,'Medicaid is a separate program. The patient has Medicare Advantage, not Medicaid.','')">C. To Medicaid as secondary</button>
+        <button type="button" class="q-opt" onclick="ansQ('m2',3,1,'Insurance is responsible for the primary claim. The patient is billed only for remaining cost-sharing after the insurer pays.','')">D. Directly to the patient</button>
+      </div>
+      <div class="rat" id="rat-m2"></div>
+    </div>
+  </div>
+
+  <!-- CONCEPT 2: Inpatient vs Observation -->
+  <div class="concept c-danger">
+    <div class="clbl">⚠️ Exam Trap — Inpatient vs Observation</div>
+    <h3>Admitted ≠ "In the Hospital"</h3>
+    <ul>
+      <li><strong>Formally ADMITTED</strong> → Part A (inpatient)</li>
+      <li><strong>Observation status</strong> (in hospital but NOT admitted) → Part B (outpatient)</li>
+      <li>This changes patient responsibility significantly</li>
+      <li>Billers must verify admission status — never assume hospital = Part A</li>
+    </ul>
+  </div>
+
+  <!-- CHECK-IN 3: T/F pair -->
+  <div class="checkin">
+    <div class="ci-lbl">Check-In — True or False?</div>
+    <div class="tf-grid">
+      <div class="tf-card">
+        <div class="tf-stmt">"Part C (Medicare Advantage) is a supplement that fills gaps left by Original Medicare."</div>
+        <div class="tf-row">
+          <button type="button" class="tf-btn" onclick="tfAns(this,'F','FALSE! Part C REPLACES Original Medicare — it does not supplement it. Medigap is the supplement. Part C and Medigap require completely different billing workflows.','tfr0')">✅ True</button>
+          <button type="button" class="tf-btn" onclick="tfAns(this,'F','✅ FALSE — correct! Part C REPLACES Original Medicare through a private plan. Medigap SUPPLEMENTS it. Never mix these workflows.','tfr0')">❌ False</button>
+        </div>
+        <div class="tf-explain" id="tfr0"></div>
+      </div>
+      <div class="tf-card">
+        <div class="tf-stmt">"Part D covers outpatient pharmacy prescriptions, and Part D claims are submitted to the Prescription Drug Plan — not to CMS."</div>
+        <div class="tf-row">
+          <button type="button" class="tf-btn" onclick="tfAns(this,'T','✅ TRUE — correct! Part D = pharmacy drugs. Claims go to the PDP insurer. In-office injections/infusions are usually Part B, not Part D.','tfr1')">✅ True</button>
+          <button type="button" class="tf-btn" onclick="tfAns(this,'T','This is TRUE. Part D claims go to the Prescription Drug Plan. CMS does not process Part D claims directly.','tfr1')">❌ False</button>
+        </div>
+        <div class="tf-explain" id="tfr1"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECK-IN 4 -->
+  <div class="checkin">
+    <div class="ci-lbl">Check-In — Observation Trap</div>
+    <div id="m3" class="qblock" style="background:transparent;box-shadow:none;padding:0;">
+      <div class="qmeta">Q3 <span class="qpts">+10 pts</span></div>
+      <div class="qtxt">A patient sleeps in a hospital bed for two nights but is classified as "observation status." Which Medicare part applies?</div>
+      <div class="qopts">
+        <button type="button" class="q-opt" onclick="ansQ('m3',0,1,'Part A applies to INPATIENT admissions — not observation status. Observation is classified as outpatient even if the patient physically stays overnight.','')">A. Part A — the patient was in the hospital</button>
+        <button type="button" class="q-opt" onclick="ansQ('m3',1,1,'✅ CORRECT! Observation status = outpatient = Part B — even though the patient physically stayed in the hospital. This is a critical exam trap. Patient responsibility is often higher under observation than under inpatient admission.','Observation = outpatient = Part B. Even overnight stays can be observation, not inpatient.')">B. Part B — observation is classified as outpatient</button>
+        <button type="button" class="q-opt" onclick="ansQ('m3',2,1,'Part D covers pharmacy drugs. Observation stays are Part B.','')">C. Part D — prescription drugs</button>
+        <button type="button" class="q-opt" onclick="ansQ('m3',3,1,'Whether observation applies does not depend on length of stay. Two nights of observation = Part B. Two nights with formal admission = Part A.','')">D. Part A — any stay over one night is inpatient</button>
+      </div>
+      <div class="rat" id="rat-m3"></div>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" onclick="goTab(2)" style="margin-top:6px;">Continue → Medicaid &amp; More ▶</button>
+</div>
+</div><!-- /tab1 -->
+
+<!-- ══════════════════════════════
+     TAB 2 — MEDICAID & MORE
+══════════════════════════════ -->
+<div id="tab2" class="panel">
+<div class="page">
+
+  <div class="eyebrow">Tab 3 · Government Payers</div>
+  <h2 class="sh">🟢 Medicaid · Medigap · TRICARE</h2>
+  <p class="sp">Three payers students constantly mix up — each gets taught then tested.</p>
+
+  <div class="dir">
+    <h3>📌 What To Do</h3>
+    <ul>
+      <li>Read each concept card, answer the check-in right after</li>
+      <li>Complete the sort activity</li>
+      <li><strong>Points available: up to 80 pts</strong></li>
+    </ul>
+  </div>
+
+  <!-- CONCEPT: Medicaid -->
+  <div class="concept c-success">
+    <div class="clbl">Concept 3 — Medicaid</div>
+    <h3>Joint Federal-State · Income-Based · Payer of Last Resort</h3>
+    <ul>
+      <li><strong>Joint federal-state</strong> program — each state administers its own</li>
+      <li>Based on <strong>income</strong> — NOT age (that's Medicare)</li>
+      <li><strong>Payer of last resort</strong> — always billed LAST after all other insurance</li>
+      <li>Eligibility can change <strong>month to month</strong> — verify at every visit</li>
+      <li>Lowest reimbursement rates of any payer</li>
+    </ul>
+  </div>
+
+  <div class="checkin">
+    <div class="ci-lbl">Check-In — Medicaid</div>
+    <div id="mc1" class="qblock" style="background:transparent;box-shadow:none;padding:0;">
+      <div class="qmeta">Q4 <span class="qpts">+10 pts</span></div>
+      <div class="qtxt">A patient has BOTH Medicare and Medicaid. Which payer is billed FIRST?</div>
+      <div class="qopts">
+        <button type="button" class="q-opt" onclick="ansQ('mc1',0,0,'✅ CORRECT! Medicare is always primary when a patient has both Medicare and Medicaid. Medicaid is the payer of LAST resort — it pays after all other insurance. Billing Medicaid first for a dual-eligible patient is a COB error.','Dual eligible: Medicare primary → Medicaid last. Always.')">A. Medicare — Medicaid is the payer of last resort</button>
+        <button type="button" class="q-opt" onclick="ansQ('mc1',1,0,'Medicaid is NEVER the primary payer when other insurance exists. It is the payer of last resort.','')">B. Medicaid — it is a government program</button>
+        <button type="button" class="q-opt" onclick="ansQ('mc1',2,0,'Claims must follow COB order — bill primary first, then secondary. Simultaneous billing is incorrect.','')">C. Both at the same time</button>
+        <button type="button" class="q-opt" onclick="ansQ('mc1',3,0,'The patient is never billed before insurance. Medicare is primary; Medicaid handles remaining cost-sharing last.','')">D. The patient directly</button>
+      </div>
+      <div class="rat" id="rat-mc1"></div>
+    </div>
+  </div>
+
+  <!-- CONCEPT: Medigap -->
+  <div class="concept c-purple">
+    <div class="clbl">Concept 4 — Medigap</div>
+    <h3>Private · Supplements Original Medicare · Fills Cost-Sharing Gaps</h3>
+    <ul>
+      <li>Medigap is <strong>private insurance</strong> — sold by private companies</li>
+      <li>Supplements <strong>Original Medicare only</strong> — NOT Medicare Advantage</li>
+      <li>Fills gaps like the <strong>20% Part B coinsurance</strong></li>
+      <li>Billing: Bill Medicare → receive EOB → bill Medigap as secondary</li>
+      <li><strong>Part C ≠ Medigap.</strong> Part C replaces. Medigap supplements. Different workflows.</li>
+    </ul>
+  </div>
+
+  <div class="checkin">
+    <div class="ci-lbl">Check-In — Medigap</div>
+    <div id="mc2" class="qblock" style="background:transparent;box-shadow:none;padding:0;">
+      <div class="qmeta">Q5 <span class="qpts">+10 pts</span></div>
+      <div class="qtxt">A patient has Original Medicare Part B and a Medigap supplement. After Medicare pays its 80%, the biller should:</div>
+      <div class="qopts">
+        <button type="button" class="q-opt" onclick="ansQ('mc2',0,2,'Medigap does not replace Medicare — it supplements it. Medicare always pays first.','')">A. Bill the Medigap plan first — it is the primary insurer</button>
+        <button type="button" class="q-opt" onclick="ansQ('mc2',1,2,'The patient may owe little or nothing if Medigap covers the 20% coinsurance. Do not bill the patient before submitting to Medigap.','')">B. Bill the patient the remaining 20% immediately</button>
+        <button type="button" class="q-opt" onclick="ansQ('mc2',2,2,'✅ CORRECT! Workflow: Bill Medicare → receive EOB → bill Medigap as secondary with the Medicare EOB. Medigap may cover the 20% coinsurance, leaving the patient owing nothing.','Medigap workflow: Medicare first → EOB → Medigap second. Patient may owe $0.')">C. Bill Medigap as secondary with the Medicare EOB attached</button>
+        <button type="button" class="q-opt" onclick="ansQ('mc2',3,2,'Write-off is premature. Medigap exists specifically to cover what Medicare leaves — submit to Medigap before any write-off decision.','')">D. Write off the remaining 20% as a contractual adjustment</button>
+      </div>
+      <div class="rat" id="rat-mc2"></div>
+    </div>
+  </div>
+
+  <!-- CONCEPT: TRICARE -->
+  <div class="concept c-secondary">
+    <div class="clbl">Concept 5 — TRICARE</div>
+    <h3>Department of Defense · Military Beneficiaries</h3>
+    <ul>
+      <li>For <strong>active duty military, retirees, and families</strong></li>
+      <li>Administered by the <strong>Department of Defense</strong></li>
+      <li>Plan types: <strong>TRICARE Prime</strong> (HMO-like) · <strong>TRICARE Select</strong> (PPO-like) · <strong>TRICARE for Life</strong> (retirees — Medicare primary, TRICARE secondary)</li>
+      <li>Do not assume civilian plan rules apply — verify the specific plan</li>
+    </ul>
+  </div>
+
+  <!-- Sort Activity: Payer Categories -->
+  <div class="checkin">
+    <div class="ci-lbl">Check-In — Sort the Payers</div>
+    <p style="font-size:.8rem;color:var(--text2);margin-bottom:10px;">Tap a payer chip, then tap the correct category to place it.</p>
+    <div class="sort-section" id="payer-sort">
+      <div class="chip-pool" id="payer-pool">
+        <div class="chip" onclick="pickSortChip(this,'payer-sort')" data-ans="govt">Medicare Part A</div>
+        <div class="chip" onclick="pickSortChip(this,'payer-sort')" data-ans="govt">Medicaid</div>
+        <div class="chip" onclick="pickSortChip(this,'payer-sort')" data-ans="supp">Medigap</div>
+        <div class="chip" onclick="pickSortChip(this,'payer-sort')" data-ans="govt">TRICARE</div>
+        <div class="chip" onclick="pickSortChip(this,'payer-sort')" data-ans="private">PPO Plan</div>
+        <div class="chip" onclick="pickSortChip(this,'payer-sort')" data-ans="private">Medicare Advantage</div>
+        <div class="chip" onclick="pickSortChip(this,'payer-sort')" data-ans="rx">Medicare Part D</div>
+        <div class="chip" onclick="pickSortChip(this,'payer-sort')" data-ans="private">HMO Plan</div>
+      </div>
+      <div class="sort-zones">
+        <div>
+          <div class="sz-lbl l-primary">🏛️ Government</div>
+          <div class="sort-zone" id="payer-zone-govt" onclick="dropSortChip(this,'govt','payer-sort')"><em style="font-size:.71rem;color:#aaa;">Tap to place</em></div>
+        </div>
+        <div>
+          <div class="sz-lbl l-teal">💼 Private / Commercial</div>
+          <div class="sort-zone" id="payer-zone-private" onclick="dropSortChip(this,'private','payer-sort')"><em style="font-size:.71rem;color:#aaa;">Tap to place</em></div>
+        </div>
+        <div>
+          <div class="sz-lbl l-purple">➕ Supplemental</div>
+          <div class="sort-zone" id="payer-zone-supp" onclick="dropSortChip(this,'supp','payer-sort')"><em style="font-size:.71rem;color:#aaa;">Tap to place</em></div>
+        </div>
+        <div>
+          <div class="sz-lbl l-accent">💊 Prescription</div>
+          <div class="sort-zone" id="payer-zone-rx" onclick="dropSortChip(this,'rx','payer-sort')"><em style="font-size:.71rem;color:#aaa;">Tap to place</em></div>
+        </div>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
+        <button type="button" class="btn btn-primary btn-sm" onclick="checkSort('payer-sort','payer-pool')">✓ Check Sort</button>
+        <span id="payer-sort-result" style="font-size:.8rem;font-weight:700;align-self:center;"></span>
+      </div>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" onclick="goTab(3)" style="margin-top:6px;">Continue → Plan Types ▶</button>
+</div>
+</div><!-- /tab2 -->
+
+<!-- ══════════════════════════════
+     TAB 3 — PLAN TYPES
+══════════════════════════════ -->
+<div id="tab3" class="panel">
+<div class="page">
+
+  <div class="eyebrow">Tab 4 · Private Insurance</div>
+  <h2 class="sh">📋 Plan Types — HMO · PPO · EPO · POS</h2>
+  <p class="sp">The plan type determines referrals, network, and billing workflow. Know the differences cold.</p>
+
+  <div class="dir">
+    <h3>📌 What To Do</h3>
+    <ul>
+      <li>Study the comparison table</li>
+      <li>Answer each check-in question immediately after reading</li>
+      <li><strong>Points available: up to 60 pts</strong></li>
+    </ul>
+  </div>
+
+  <!-- Plan comparison table -->
+  <div style="overflow-x:auto;margin-bottom:16px;">
+    <table class="tbl">
+      <thead>
+        <tr>
+          <th>Plan</th>
+          <th>PCP Required?</th>
+          <th>Referral to Specialist?</th>
+          <th>Out-of-Network?</th>
+          <th>Flexibility</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>HMO</strong></td>
+          <td><span class="tag tag-ok">Yes</span></td>
+          <td><span class="tag tag-ok">Yes — required</span></td>
+          <td><span class="tag tag-no">No (ER only)</span></td>
+          <td>Lowest</td>
+        </tr>
+        <tr>
+          <td><strong>PPO</strong></td>
+          <td><span class="tag tag-no">No</span></td>
+          <td><span class="tag tag-no">No</span></td>
+          <td><span class="tag tag-ok">Yes (higher cost)</span></td>
+          <td>Highest</td>
+        </tr>
+        <tr>
+          <td><strong>EPO</strong></td>
+          <td><span class="tag tag-no">No</span></td>
+          <td><span class="tag tag-no">No</span></td>
+          <td><span class="tag tag-no">No (ER only)</span></td>
+          <td>Moderate</td>
+        </tr>
+        <tr>
+          <td><strong>POS</strong></td>
+          <td><span class="tag tag-ok">Yes (in-net)</span></td>
+          <td><span class="tag tag-ok">In-net specialist</span></td>
+          <td><span class="tag tag-ok">Yes (higher cost)</span></td>
+          <td>Moderate</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CHECK-IN -->
+  <div class="checkin">
+    <div class="ci-lbl">Check-In — Plan Types</div>
+    <div id="pt1" class="qblock" style="background:transparent;box-shadow:none;padding:0;">
+      <div class="qmeta">Q6 <span class="qpts">+10 pts</span></div>
+      <div class="qtxt">An HMO patient wants to see a dermatologist without first visiting her PCP. What must the office verify BEFORE scheduling?</div>
+      <div class="qopts">
+        <button type="button" class="q-opt" onclick="ansQ('pt1',0,0,'✅ CORRECT! HMO plans require a PCP referral before any specialist visit. No referral = claim denial. The office must verify the referral exists before confirming the appointment.','HMO + specialist = referral required. No referral = denial.')">A. Whether a PCP referral is on file — HMO requires it for specialist visits</button>
+        <button type="button" class="q-opt" onclick="ansQ('pt1',1,0,'While deductible status matters for financial discussions, the CRITICAL pre-service check for an HMO specialist is the referral. A claim without a referral will be denied regardless of deductible status.','')">B. The patient\'s deductible status only</button>
+        <button type="button" class="q-opt" onclick="ansQ('pt1',2,0,'HMO plans do NOT automatically cover specialist visits without a referral. Scheduling without verifying the referral is a front-end billing error.','')">C. Nothing — HMOs cover all specialist visits automatically</button>
+        <button type="button" class="q-opt" onclick="ansQ('pt1',3,0,'While copay collection matters, the denial risk in an HMO comes from missing the referral — not from misquoting a copay.','')">D. The patient\'s copay amount only</button>
+      </div>
+      <div class="rat" id="rat-pt1"></div>
+    </div>
+  </div>
+
+  <div class="checkin">
+    <div class="ci-lbl">Check-In — PPO vs HMO</div>
+    <div id="pt2" class="qblock" style="background:transparent;box-shadow:none;padding:0;">
+      <div class="qmeta">Q7 <span class="qpts">+10 pts</span></div>
+      <div class="qtxt">A PPO patient sees an out-of-network specialist. What is the MOST important thing to communicate before the visit?</div>
+      <div class="qopts">
+        <button type="button" class="q-opt" onclick="ansQ('pt2',0,0,'✅ CORRECT! PPO covers out-of-network but at significantly higher patient cost. The office must explain this financial exposure BEFORE the visit. Patients who don\'t know this will dispute the bill later.','PPO out-of-network: covered, but patient pays MORE. Explain before service.')">A. That out-of-network services cost the patient more — explain the financial exposure now</button>
+        <button type="button" class="q-opt" onclick="ansQ('pt2',1,0,'PPO DOES cover out-of-network providers. The claim will not be denied — but the patient pays higher cost-sharing.','')">B. The claim will be denied — PPO doesn\'t cover out-of-network</button>
+        <button type="button" class="q-opt" onclick="ansQ('pt2',2,0,'Out-of-network in a PPO costs MORE — not the same as in-network. This is the most common patient dispute source.','')">C. The cost will be the same as an in-network visit</button>
+        <button type="button" class="q-opt" onclick="ansQ('pt2',3,0,'The office has a responsibility to inform the patient of financial exposure before services are rendered.','')">D. Nothing — the patient chose the specialist, so they accept all costs</button>
+      </div>
+      <div class="rat" id="rat-pt2"></div>
+    </div>
+  </div>
+
+  <div class="checkin">
+    <div class="ci-lbl">Check-In — POS vs PPO Trap</div>
+    <div id="pt3" class="qblock" style="background:transparent;box-shadow:none;padding:0;">
+      <div class="qmeta">Q8 <span class="qpts">+10 pts</span></div>
+      <div class="qtxt">A patient has a plan that requires a PCP referral for in-network specialist visits BUT also allows out-of-network access at higher cost. This is MOST likely a:</div>
+      <div class="qopts">
+        <button type="button" class="q-opt" onclick="ansQ('pt3',0,3,'HMO does NOT allow out-of-network (except emergencies). The plan described allows out-of-network access — so it is not an HMO.','')">A. HMO</button>
+        <button type="button" class="q-opt" onclick="ansQ('pt3',1,3,'PPO does NOT require referrals. The plan described requires referrals for in-network specialists.','')">B. PPO</button>
+        <button type="button" class="q-opt" onclick="ansQ('pt3',2,3,'EPO does not require referrals and does not allow out-of-network access.','')">C. EPO</button>
+        <button type="button" class="q-opt" onclick="ansQ('pt3',3,3,'✅ CORRECT! POS = hybrid plan. Referral required for in-network specialists (like HMO) + out-of-network allowed at higher cost (like PPO). This combination defines POS.','POS = referral required in-network + out-of-network allowed. The hybrid.')">D. POS</button>
+      </div>
+      <div class="rat" id="rat-pt3"></div>
+    </div>
+  </div>
+
+  <button type="button" class="btn btn-primary" onclick="goTab(4)" style="margin-top:6px;">Continue → COB &amp; Birthday Rule ▶</button>
+</div>
+</div><!-- /tab3 -->
+
+<!-- PASTE PART 2 HTML BELOW THIS LINE -->
+
+<!-- ══════════════════════════════
+     JAVASCRIPT — ALL FUNCTIONALITY
+     (stays at bottom of final combined file)
+══════════════════════════════ -->
+<script>
+/* ── GLOBALS ──────────────────── */
+let gScore = 0, gAnswered = 0, gCorrect = 0;
+
+// Per-sort-section selected chip tracker
+const sortSelected = {};
+
+// T/F: map each reveal-div id → correct answer string 'T' or 'F'
+const TF_CORRECT = {
+  tfr0: 'F',
+  tfr1: 'T'
+  // more added in Part 2
+};
+
+/* ── UTILITY ──────────────────── */
+function showNotif(msg, bad) {
+  const el = document.getElementById('notif');
+  el.textContent = msg;
+  el.className = 'show' + (bad ? ' bad' : '');
+  clearTimeout(el._t);
+  el._t = setTimeout(() => { el.className = ''; }, 2600);
+}
+
+function updateStats() {
+  document.getElementById('gScore').textContent   = gScore;
+  document.getElementById('gCorrect').textContent = gCorrect;
+  document.getElementById('gAcc').textContent     =
+    gAnswered > 0 ? Math.round(gCorrect / gAnswered * 100) + '%' : '—';
+}
+
+/* ── TAB NAVIGATION ──────────── */
+function goTab(n) {
+  document.querySelectorAll('.panel').forEach((p, i) => {
+    p.classList.toggle('active', i === n);
+  });
+  document.querySelectorAll('.ntab').forEach((t, i) => {
+    t.classList.toggle('active', i === n);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ── ACCORDION ───────────────── */
+function toggleAcc(id) {
+  const body = document.getElementById(id);
+  const hdr  = body.previousElementSibling;
+  const open = body.classList.contains('open');
+  body.classList.toggle('open', !open);
+  hdr.classList.toggle('open',  !open);
+}
+
+/* ── ANSWER QUESTION ─────────── */
+/*
+  ansQ(blockId, chosenIdx, correctIdx, ratText, clueText)
+  - blockId    : the qblock element id
+  - chosenIdx  : which button index the user clicked (0-based)
+  - correctIdx : which index is the correct answer
+  - ratText    : rationale HTML string (starts with ✅ CORRECT for correct answer)
+  - clueText   : optional exam clue (shown in blue box); pass '' to omit
+*/
+function ansQ(blockId, chosenIdx, correctIdx, ratText, clueText) {
+  const block = document.getElementById(blockId);
+  if (!block || block.dataset.done) return;   // prevent double-click
+  block.dataset.done = '1';
+
+  const opts = block.querySelectorAll('.q-opt');
+  const ratEl = document.getElementById('rat-' + blockId);
+  const ok = (chosenIdx === correctIdx);
+
+  // Mark buttons
+  opts.forEach((btn, i) => {
+    btn.disabled = true;
+    if (i === correctIdx)            btn.classList.add('q-ok');
+    else if (i === chosenIdx && !ok) btn.classList.add('q-no');
+  });
+
+  // Score
+  gAnswered++;
+  if (ok) { gScore += 10; gCorrect++; showNotif('+10 pts ✓'); }
+  else     { showNotif('Review the rationale ↓', true); }
+  updateStats();
+
+  // Rationale
+  if (ratEl && ratText) {
+    ratEl.classList.add('show');
+    const headCls = ok ? 'rh-ok' : 'rh-no';
+    const headTxt = ok ? '✅ Correct!' : '📖 Here\'s Why...';
+    ratEl.innerHTML =
+      `<div class="rat-head ${headCls}">${headTxt}</div>` +
+      `<div class="rat-body">${ratText}` +
+      (clueText ? `<div class="rat-clue">💡 ${clueText}</div>` : '') +
+      `</div>`;
+  }
+}
+
+/* ── TRUE / FALSE ─────────────── */
+/*
+  tfAns(btn, correctAnswer, explainText, revealId)
+  - btn           : the button element that was clicked
+  - correctAnswer : 'T' or 'F'
+  - explainText   : explanation string to show
+  - revealId      : id of the .tf-explain div
+*/
+function tfAns(btn, correctAnswer, explainText, revealId) {
+  const card = btn.closest('.tf-card');
+  if (!card || card.dataset.done) return;
+  card.dataset.done = '1';
+
+  // Determine if this button represents T or F
+  // Convention: button text starts with ✅ = True option, ❌ = False option
+  const btnIsTrue = btn.textContent.trim().startsWith('✅');
+  const userAns   = btnIsTrue ? 'T' : 'F';
+  const ok        = (userAns === correctAnswer);
+
+  card.querySelectorAll('.tf-btn').forEach(b => { b.disabled = true; });
+  btn.classList.add(ok ? 'tf-ok' : 'tf-no');
+
+  const revEl = document.getElementById(revealId);
+  if (revEl) { revEl.textContent = explainText; revEl.classList.add('show'); }
+
+  gAnswered++;
+  if (ok) { gScore += 5; gCorrect++; showNotif('+5 pts ✓'); }
+  else     { showNotif('Review below ↓', true); }
+  updateStats();
+}
+
+/* ── SORT / CHIP ──────────────── */
+/*
+  Each sort section has a unique sectionId.
+  sortSelected[sectionId] holds the currently selected chip element.
+  This prevents cross-section interference.
+*/
+function pickSortChip(chipEl, sectionId) {
+  if (chipEl.classList.contains('chip-ok') || chipEl.classList.contains('chip-no')) return;
+
+  // Deselect within this section only
+  const section = document.getElementById(sectionId);
+  if (!section) return;
+  section.querySelectorAll('.chip.sel').forEach(c => c.classList.remove('sel'));
+
+  chipEl.classList.add('sel');
+  sortSelected[sectionId] = chipEl;
+}
+
+function dropSortChip(zoneEl, zoneId, sectionId) {
+  const chip = sortSelected[sectionId];
+  if (!chip) return;
+
+  const correct = (chip.dataset.ans === zoneId);
+  chip.classList.remove('sel');
+
+  if (correct) {
+    chip.classList.add('chip-ok');
+    const clone = chip.cloneNode(true);
+    clone.onclick = null;   // remove click handler on clone
+    clone.style.cursor = 'default';
+    zoneEl.appendChild(clone);
+    chip.style.display = 'none';
+    gScore += 5; gCorrect++; gAnswered++;
+    updateStats();
+    showNotif('+5 pts ✓');
+  } else {
+    chip.classList.add('chip-no');
+    setTimeout(() => chip.classList.remove('chip-no'), 600);
+    gAnswered++;
+    updateStats();
+    showNotif('Not quite — try again', true);
+  }
+  sortSelected[sectionId] = null;
+}
+
+function checkSort(sectionId, poolId) {
+  const remaining = document.querySelectorAll(
+    `#${poolId} .chip:not([style*="display: none"])`
+  );
+  const resultEl = document.getElementById(sectionId + '-result');
+  if (!resultEl) return;
+  if (remaining.length === 0) {
+    resultEl.innerHTML = '<span style="color:var(--success-text)">✅ All sorted correctly!</span>';
+  } else {
+    resultEl.innerHTML = `<span style="color:var(--warn-text)">${remaining.length} item(s) left to place.</span>`;
+  }
+}
+
+/* ── INIT ─────────────────────── */
+updateStats();
+</script>
+
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
+<footer class="footer">
+  <b>CBCS Insurance Mastery Question Lab</b> — Medicare · Medicaid · COB · Plan Types · Patient Responsibility<br>
+  Designed and Curriculum Developed by <b>Hilary Homaii</b>
+</footer>
+</body>
+</html>
